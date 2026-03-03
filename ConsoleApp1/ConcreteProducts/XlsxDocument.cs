@@ -11,7 +11,7 @@ public class XlsxDocument: IExportDocument
     {
         using (var workbook = new XLWorkbook())
         {
-            var worksheet = workbook.Worksheets.Add("Отчёт");
+            var worksheet = workbook.Worksheets.Add("Отчет");
             int row = 1;
 
             foreach (var student in data)
