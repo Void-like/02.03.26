@@ -34,7 +34,7 @@ class Program
             {
                 PdfFactory pdf = new PdfFactory();
                 IExportDocument document = pdf.CreateExportDocument();
-                document.Save(Path.Combine("Result", $"отчет{DateTime.Now.ToString("yyyyMMdd")}"), data.Students);
+                document.Save(Path.Combine($"отчет{DateTime.Now.ToString("yyyyMMdd")}.pdf"), data.Students);
                 Console.WriteLine($"файл сохранен");
                 
             }
@@ -42,14 +42,14 @@ class Program
             {
                 TxtFactory txt = new TxtFactory();
                 IExportDocument document = txt.CreateExportDocument();
-                document.Save(Path.Combine("Result", $"отчет{DateTime.Now.ToString("yyyyMMdd")}"),data.Students);
+                document.Save(Path.Combine($"отчет{DateTime.Now.ToString("yyyyMMdd")}.txt"),data.Students);
                 Console.WriteLine($"файл сохранен");
             }
             else if (a == 3)
             {
                 XlsxFactory Xlsx = new XlsxFactory();
                 IExportDocument document = Xlsx.CreateExportDocument();
-               document.Save(Path.Combine("Result",$"отчет{DateTime.Now.ToString("yyyyMMdd")}"),data.Students);
+               document.Save(Path.Combine($"отчет{DateTime.Now.ToString("yyyyMMdd")}.xlsx"),data.Students);
                 Console.WriteLine($"файл сохранен");
             }
             else
