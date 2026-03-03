@@ -1,4 +1,4 @@
-using ConsoleApp1.Model;
+﻿using ConsoleApp1.Model;
 using QuestPDF.Fluent;
 
 namespace ConsoleApp1.ConcreteProducts;
@@ -21,5 +21,6 @@ public class PdfDocumentPdfDocument: IExportDocument
                 });
             })
             .GeneratePdf(path);
+        
     }
 }

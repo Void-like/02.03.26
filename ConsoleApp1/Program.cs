@@ -1,4 +1,7 @@
-﻿using ConsoleApp1.Model;
+﻿using ConsoleApp1;
+using ConsoleApp1.ConcreteCreators;
+using ConsoleApp1.Model;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Text.Json;
 
@@ -12,39 +15,49 @@ class Program
         Console.OutputEncoding = Encoding.UTF8;
         //хз вдруг вводить надо че-то по приколу
         Console.InputEncoding = Encoding.UTF8;
-        Console.WriteLine("Успеваемость школьников ");
         string json = File.ReadAllText("students.json");
         var data = JsonSerializer.Deserialize<Student>(json);
-        if (data == null) 
+       
+        if (data != null)
+        {
+            Console.WriteLine("данные есть");
+        }
+        else
         {
             Console.WriteLine("а данных нема");
         }
-        Console.WriteLine("\nВыбирай воин\n1.PDF\n2.TXT\n3.XLSX\n4.Показать данный");
+        Console.WriteLine("\nВыбирай воин\n1.PDF\n2.TXT\n3.XLSX");
         while (true)
         {
            int a = int.Parse(Console.ReadLine());
             if (a == 1)
             {
-
+                PdfFactory pdf = new PdfFactory();
+                IExportDocument document = pdf.CreateExportDocument();
+               Console.WriteLine($"файл сохранен");
+                
             }
             else if (a == 2)
             {
-
+                TxtFactory txt = new TxtFactory();
+                IExportDocument document = txt.CreateExportDocument();
+                Console.WriteLine($"файл сохранен");
             }
             else if (a == 3)
             {
-
-            }
-            else if (a == 4) 
-            { 
-            
+                XlsxFactory Xlsx = new XlsxFactory();
+                IExportDocument document = Xlsx.CreateExportDocument();
+             //   document.Save("result",data);
+                Console.WriteLine($"файл сохранен");
             }
             else
             {
                 Console.WriteLine("фигню не пиши");
+                return;
             }
-
+           
         }
+        
     }
     //44444
 }

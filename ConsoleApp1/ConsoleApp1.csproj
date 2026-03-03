@@ -9,13 +9,10 @@
 
     <ItemGroup>
       <Compile Remove="Client\**" />
-      <Compile Remove="ConcreteCreators\**" />
       <Compile Remove="Creator\**" />
       <EmbeddedResource Remove="Client\**" />
-      <EmbeddedResource Remove="ConcreteCreators\**" />
       <EmbeddedResource Remove="Creator\**" />
       <None Remove="Client\**" />
-      <None Remove="ConcreteCreators\**" />
       <None Remove="Creator\**" />
     </ItemGroup>
 
@@ -28,6 +25,10 @@
       <None Update="students.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Result\" />
     </ItemGroup>
 
 </Project>
