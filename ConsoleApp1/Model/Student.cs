@@ -6,3 +6,9 @@ public class Student
     public string Name { get; set; }   
     public int Grade { get; set; }
 }
+public class StudentData
+{
+    public string Group { get; set; }
+    public string Semester { get; set; }
+    public List<Student> Students { get; set; }
+}

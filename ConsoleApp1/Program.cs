@@ -16,7 +16,7 @@ class Program
         //хз вдруг вводить надо че-то по приколу
         Console.InputEncoding = Encoding.UTF8;
         string json = File.ReadAllText("students.json");
-        var data = JsonSerializer.Deserialize<Student>(json);
+        var data =  JsonSerializer.Deserialize<StudentData>(json);
        
         if (data != null)
         {
@@ -34,20 +34,22 @@ class Program
             {
                 PdfFactory pdf = new PdfFactory();
                 IExportDocument document = pdf.CreateExportDocument();
-               Console.WriteLine($"файл сохранен");
+              
+                Console.WriteLine($"файл сохранен");
                 
             }
             else if (a == 2)
             {
                 TxtFactory txt = new TxtFactory();
                 IExportDocument document = txt.CreateExportDocument();
+                document.Save("result", data.Students);
                 Console.WriteLine($"файл сохранен");
             }
             else if (a == 3)
             {
                 XlsxFactory Xlsx = new XlsxFactory();
                 IExportDocument document = Xlsx.CreateExportDocument();
-             //   document.Save("result",data);
+               document.Save("result",data.Students);
                 Console.WriteLine($"файл сохранен");
             }
             else
