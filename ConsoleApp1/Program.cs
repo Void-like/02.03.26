@@ -16,7 +16,7 @@ class Program
         //хз вдруг вводить надо че-то по приколу
         Console.InputEncoding = Encoding.UTF8;
         string json = File.ReadAllText("students.json", Encoding.UTF8);
-        var data =  JsonSerializer.Deserialize<StudentData>(json);
+        var data = JsonSerializer.Deserialize<StudentData>(json);
        
         if (data != null)
         {
@@ -26,7 +26,7 @@ class Program
         {
             Console.WriteLine("а данных нема");
         }
-        Console.WriteLine("\nВыбирай воин\n1.PDF\n2.TXT\n3.XLSX");
+        Console.WriteLine("\nВыбирай воин\n1.PDF\n2.TXT\n3.XLSX\n4.глянуть список");
         while (true)
         {
            int a = int.Parse(Console.ReadLine());
@@ -51,6 +51,15 @@ class Program
                 IExportDocument document = Xlsx.CreateExportDocument();
                document.Save(Path.Combine($"отчет{DateTime.Now.ToString("yyyyMMdd")}.xlsx"),data.Students);
                 Console.WriteLine($"файл сохранен");
+            }
+            else if (a == 4)
+            {
+                Console.WriteLine("Группа:"+data.Group);
+                Console.WriteLine("Семестер:"+data.Semester);
+                for(int s=0; data.Students.Count>s;s++) 
+                {
+                    Console.WriteLine($"Имя и фамилия:{data.Students[s].Name}|Оценка:{data.Students[s].Grade}");
+                }
             }
             else
             {

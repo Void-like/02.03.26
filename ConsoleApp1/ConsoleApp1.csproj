@@ -18,17 +18,13 @@
 
     <ItemGroup>
       <PackageReference Include="ClosedXML" Version="0.105.0" />
-      <PackageReference Include="QuestPDF" Version="2026.2.2" />
+      <PackageReference Include="QuestPDF" Version="2026.2.3" />
     </ItemGroup>
 
     <ItemGroup>
       <None Update="students.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Result\" />
     </ItemGroup>
 
 </Project>
